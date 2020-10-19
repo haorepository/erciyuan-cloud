@@ -1,0 +1,234 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project xmlns="http://maven.apache.org/POM/4.0.0"
+         xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+    <modelVersion>4.0.0</modelVersion>
+    <parent>
+        <groupId>org.springframework.boot</groupId>
+        <artifactId>spring-boot-starter-parent</artifactId>
+        <version>2.3.4.RELEASE</version>
+        <relativePath/> <!-- lookup parent from repository -->
+    </parent>
+
+    <groupId>com.haozi</groupId>
+    <artifactId>erciyuan-cloud</artifactId>
+    <version>0.0.1</version>
+    <name>erciyuan-cloud</name>
+    <description>erciyuan-cloud</description>
+
+    <packaging>pom</packaging>
+
+    <properties>
+        <java.version>11</java.version>
+        <nacos.version>0.2.7</nacos.version>
+        <nacos-discovery.version>2.2.3.RELEASE</nacos-discovery.version>
+        <nacos-config.version>2.2.3.RELEASE</nacos-config.version>
+        <spring-boot-test.version>2.3.4.RELEASE</spring-boot-test.version>
+        <spring-boot-web.version>2.3.4.RELEASE</spring-boot-web.version>
+        <spring-boot.version>2.3.4.RELEASE</spring-boot.version>
+        <spring-boot.actuator>2.3.4.RELEASE</spring-boot.actuator>
+        <spring-boot-redis.version>2.3.4.RELEASE</spring-boot-redis.version>
+        <spring-boot-freemarker.version>2.3.2.RELEASE</spring-boot-freemarker.version>
+        <spring-cloud.version>Hoxton.SR8</spring-cloud.version>
+        <spring-cloud-bus.version>2.2.3.RELEASE</spring-cloud-bus.version>
+        <spring-cloud-gateway.version>2.2.5.RELEASE</spring-cloud-gateway.version>
+        <spring-cloud-security.version>2.2.4.RELEASE</spring-cloud-security.version>
+        <spring-cloud-oauth2.version>2.2.4.RELEASE</spring-cloud-oauth2.version>
+        <spring-cloud-openfeign.version>2.2.5.RELEASE</spring-cloud-openfeign.version>
+        <spring-cloud-sleuth.version>2.2.5.RELEASE</spring-cloud-sleuth.version>
+        <spring-cloud-zipkin.version>2.2.5.RELEASE</spring-cloud-zipkin.version>
+        <spring-cloud-stream.version>3.0.8.RELEASE</spring-cloud-stream.version>
+        <spring-cloud-stream-test-support.version>3.0.8.RELEASE</spring-cloud-stream-test-support.version>
+        <redis-pool2.version>2.8.1</redis-pool2.version>
+        <msql.version>8.0.21</msql.version>
+        <lombok.version>1.18.12</lombok.version>
+        <hutool.version>5.0.7</hutool.version>
+        <mybatis-plus.version>3.3.0</mybatis-plus.version>
+        <alibaba-druid.version>1.1.22</alibaba-druid.version>
+    </properties>
+
+    <!-- 子模块 -->
+    <modules>
+        <module>erciyuan-oauth2</module>
+        <module>erciyuan-gateway</module>
+        <module>erciyuan-security</module>
+        <module>erciyuan-user</module>
+        <module>erciyuan-company</module>
+        <module>erciyuan-department</module>
+    </modules>
+
+    <!-- 依赖 -->
+    <dependencies>
+
+    </dependencies>
+
+    <!-- 统一依赖管理 -->
+    <dependencyManagement>
+        <dependencies>
+            <!-- Spring Boot Web 依赖 -->
+            <dependency>
+                <groupId>org.springframework.boot</groupId>
+                <artifactId>spring-boot-starter</artifactId>
+                <version>${spring-boot.version}</version>
+            </dependency>
+            <dependency>
+                <groupId>org.springframework.boot</groupId>
+                <artifactId>spring-boot-starter-web</artifactId>
+                <version>${spring-boot-web.version}</version>
+            </dependency>
+            <dependency>
+                <groupId>org.springframework.boot</groupId>
+                <artifactId>spring-boot-starter-actuator</artifactId>
+                <version>${spring-boot.actuator}</version>
+            </dependency>
+            <dependency>
+                <groupId>org.springframework.boot</groupId>
+                <artifactId>spring-boot-starter-test</artifactId>
+                <version>${spring-boot-test.version}</version>
+                <scope>test</scope>
+            </dependency>
+            <dependency>
+                <groupId>org.springframework.boot</groupId>
+                <artifactId>spring-boot-starter-freemarker</artifactId>
+                <version>${spring-boot-freemarker.version}</version>
+            </dependency>
+
+            <!-- alibaba nacos -->
+            <dependency>
+                <groupId>com.alibaba.cloud</groupId>
+                <artifactId>spring-cloud-starter-alibaba-nacos-discovery</artifactId>
+                <version>${nacos-discovery.version}</version>
+            </dependency>
+            <dependency>
+                <groupId>com.alibaba.cloud</groupId>
+                <artifactId>spring-cloud-starter-alibaba-nacos-config</artifactId>
+                <version>${nacos-config.version}</version>
+            </dependency>
+
+            <!-- 热部署 -->
+            <dependency>
+                <groupId>org.springframework.boot</groupId>
+                <artifactId>spring-boot-devtools</artifactId>
+                <version>${spring-boot.version}</version>
+                <scope>runtime</scope>
+                <optional>true</optional>
+            </dependency>
+
+            <!-- lombok插件 -->
+            <dependency>
+                <groupId>org.projectlombok</groupId>
+                <artifactId>lombok</artifactId>
+                <version>${lombok.version}</version>
+                <optional>true</optional>
+            </dependency>
+
+            <!-- mysql连接工具 -->
+            <dependency>
+                <groupId>mysql</groupId>
+                <artifactId>mysql-connector-java</artifactId>
+                <version>${msql.version}</version>
+            </dependency>
+
+            <!-- redis -->
+            <dependency>
+                <groupId>org.springframework.boot</groupId>
+                <artifactId>spring-boot-starter-data-redis-reactive</artifactId>
+                <version>${spring-boot-redis.version}</version>
+            </dependency>
+            <!-- redis依赖commons-pool 这个依赖一定要添加 -->
+            <dependency>
+                <groupId>org.apache.commons</groupId>
+                <artifactId>commons-pool2</artifactId>
+                <version>${redis-pool2.version}</version>
+            </dependency>
+
+            <!-- hutool通用工具类 -->
+            <dependency>
+                <groupId>cn.hutool</groupId>
+                <artifactId>hutool-all</artifactId>
+                <version>${hutool.version}</version>
+            </dependency>
+
+            <!-- mybatis-plus -->
+            <dependency>
+                <groupId>com.baomidou</groupId>
+                <artifactId>mybatis-plus-boot-starter</artifactId>
+                <version>${mybatis-plus.version}</version>
+            </dependency>
+            <dependency>
+                <groupId>com.baomidou</groupId>
+                <artifactId>mybatis-plus-generator</artifactId>
+                <version>${mybatis-plus.version}</version>
+            </dependency>
+
+            <dependency>
+                <groupId>com.alibaba</groupId>
+                <artifactId>druid-spring-boot-starter</artifactId>
+                <version>${alibaba-druid.version}</version>
+            </dependency>
+
+            <!-- spring-cloud -->
+            <dependency>
+                <groupId>org.springframework.cloud</groupId>
+                <artifactId>spring-cloud-starter-bus-amqp</artifactId>
+                <version>${spring-cloud-bus.version}</version>
+            </dependency>
+            <dependency>
+                <groupId>org.springframework.cloud</groupId>
+                <artifactId>spring-cloud-starter-gateway</artifactId>
+                <version>${spring-cloud-gateway.version}</version>
+            </dependency>
+            <dependency>
+                <groupId>org.springframework.cloud</groupId>
+                <artifactId>spring-cloud-starter-security</artifactId>
+                <version>${spring-cloud-security.version}</version>
+            </dependency>
+            <dependency>
+                <groupId>org.springframework.cloud</groupId>
+                <artifactId>spring-cloud-starter-oauth2</artifactId>
+                <version>${spring-cloud-oauth2.version}</version>
+            </dependency>
+            <dependency>
+                <groupId>org.springframework.cloud</groupId>
+                <artifactId>spring-cloud-starter-openfeign</artifactId>
+                <version>${spring-cloud-openfeign.version}</version>
+            </dependency>
+            <dependency>
+                <groupId>org.springframework.cloud</groupId>
+                <artifactId>spring-cloud-starter-sleuth</artifactId>
+                <version>${spring-cloud-sleuth.version}</version>
+            </dependency>
+            <dependency>
+                <groupId>org.springframework.cloud</groupId>
+                <artifactId>spring-cloud-starter-zipkin</artifactId>
+                <version>${spring-cloud-zipkin.version}</version>
+            </dependency>
+            <dependency>
+                <groupId>org.springframework.cloud</groupId>
+                <artifactId>spring-cloud-stream</artifactId>
+                <version>${spring-cloud-stream.version}</version>
+            </dependency>
+            <dependency>
+                <groupId>org.springframework.cloud</groupId>
+                <artifactId>spring-cloud-stream-test-support</artifactId>
+                <version>${spring-cloud-stream-test-support.version}</version>
+            </dependency>
+            <dependency>
+                <groupId>org.springframework.cloud</groupId>
+                <artifactId>spring-cloud-dependencies</artifactId>
+                <version>Hoxton.SR8</version>
+            </dependency>
+        </dependencies>
+    </dependencyManagement>
+
+    <build>
+        <plugins>
+            <plugin>
+                <groupId>org.springframework.boot</groupId>
+                <artifactId>spring-boot-maven-plugin</artifactId>
+            </plugin>
+        </plugins>
+    </build>
+
+
+</project>

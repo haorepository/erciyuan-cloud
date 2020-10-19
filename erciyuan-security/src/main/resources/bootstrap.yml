@@ -1,0 +1,29 @@
+server:
+  port: 9195
+  servlet:
+    context-path: /ec-security
+spring:
+  application:
+    name: ec-security
+  cloud:
+    nacos:
+      discovery:
+        group: ec-security
+        server-addr: 192.168.0.73:6048
+        #dev
+        namespace: f04b75d3-9321-4d38-82a7-58c2f27c6b8e
+        #test
+        #namespace: 8d197449-7d4a-47da-aeb4-3dc8b90ad5c4
+        #prod
+        #namespace: 5f49e83a-49f0-4667-b638-462ab8f4f01e
+      config:
+        group: ec-security
+        file-extension: yaml
+        prefix: ec-security-dev
+        server-addr: 192.168.0.73:6048
+        #dev
+        namespace: f04b75d3-9321-4d38-82a7-58c2f27c6b8e
+        #test
+        #namespace: 8d197449-7d4a-47da-aeb4-3dc8b90ad5c4
+        #prod
+        #namespace: 5f49e83a-49f0-4667-b638-462ab8f4f01e

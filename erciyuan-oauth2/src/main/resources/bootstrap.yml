@@ -1,0 +1,29 @@
+server:
+  port: 9194
+  servlet:
+    context-path: /ec-oauth2
+spring:
+  application:
+    name: ec-oauth2
+  cloud:
+    nacos:
+      discovery:
+        group: ec-oauth2
+        server-addr: 192.168.0.73:6048
+        #dev
+        namespace: f04b75d3-9321-4d38-82a7-58c2f27c6b8e
+        #test
+        #namespace: 8d197449-7d4a-47da-aeb4-3dc8b90ad5c4
+        #prod
+        #namespace: 5f49e83a-49f0-4667-b638-462ab8f4f01e
+      config:
+        group: ec-oauth2
+        file-extension: yaml
+        prefix: ec-oauth2-dev
+        server-addr: 192.168.0.73:6048
+        #dev
+        namespace: f04b75d3-9321-4d38-82a7-58c2f27c6b8e
+        #test
+        #namespace: 8d197449-7d4a-47da-aeb4-3dc8b90ad5c4
+        #prod
+        #namespace: 5f49e83a-49f0-4667-b638-462ab8f4f01e

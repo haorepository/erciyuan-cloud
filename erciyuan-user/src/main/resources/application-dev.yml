@@ -1,0 +1,7 @@
+spring:
+  datasource:
+    druid:
+      url: jdbc:myql://127.0.0.1:3306/nacos?useUnicode=true&characterEncoding=UTF-8&serverTimezone=Asia/Shanghai
+      driver-class-name: com.mysql.cj.jdbc.Driver
+      username: root
+      password: root
