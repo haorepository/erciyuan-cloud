@@ -1,30 +1,30 @@
 server:
-  port: 9197
+  port: 7197
   servlet:
-    context-path: /ec-department
+    context-path: /erciyuan-department
 spring:
   profiles:
     active: dev
   application:
-    name: ec-department
+    name: erciyuan-department
   cloud:
     nacos:
       discovery:
-        group: ec-department
+        group: erciyuan-department
         server-addr: 192.168.0.73:6048
         #dev
-        namespace: f04b75d3-9321-4d38-82a7-58c2f27c6b8e
+        namespace: d70eac3e-4f8e-453c-8036-fbbd5a3ba52a
         #test
-        #namespace: 8d197449-7d4a-47da-aeb4-3dc8b90ad5c4
+        #namespace: 62d7cd8a-85df-45ca-8009-36ba9ca3982b
         #prod
-        #namespace: 5f49e83a-49f0-4667-b638-462ab8f4f01e
+        #namespace: d7fffb0e-6ba2-4a38-a131-577919930ffd
       config:
-        group: ec-department
+        group: erciyuan-department
         file-extension: yaml
         server-addr: 192.168.0.73:6048
         #dev
-        namespace: f04b75d3-9321-4d38-82a7-58c2f27c6b8e
+        namespace: d70eac3e-4f8e-453c-8036-fbbd5a3ba52a
         #test
-        #namespace: 8d197449-7d4a-47da-aeb4-3dc8b90ad5c4
+        #namespace: 62d7cd8a-85df-45ca-8009-36ba9ca3982b
         #prod
-        #namespace: 5f49e83a-49f0-4667-b638-462ab8f4f01e
+        #namespace: d7fffb0e-6ba2-4a38-a131-577919930ffd
