@@ -44,6 +44,7 @@
         <lombok.version>1.18.12</lombok.version>
         <hutool.version>5.0.7</hutool.version>
         <mybatis-plus.version>3.3.0</mybatis-plus.version>
+        <dynamic-datasource.version>3.1.0</dynamic-datasource.version>
         <alibaba-druid.version>1.1.22</alibaba-druid.version>
     </properties>
 
@@ -160,6 +161,11 @@
                 <artifactId>mybatis-plus-generator</artifactId>
                 <version>${mybatis-plus.version}</version>
             </dependency>
+            <dependency>
+                <groupId>com.baomidou</groupId>
+                <artifactId>dynamic-datasource-spring-boot-starter</artifactId>
+                <version>${dynamic-datasource.version}</version>
+            </dependency>
 
             <dependency>
                 <groupId>com.alibaba</groupId>
@@ -216,7 +222,7 @@
             <dependency>
                 <groupId>org.springframework.cloud</groupId>
                 <artifactId>spring-cloud-dependencies</artifactId>
-                <version>Hoxton.SR8</version>
+                <version>${spring-cloud.version}</version>
             </dependency>
         </dependencies>
     </dependencyManagement>
